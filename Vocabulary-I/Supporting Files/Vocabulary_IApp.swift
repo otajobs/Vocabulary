@@ -12,7 +12,8 @@ import SwiftData
 struct Vocabulary_IApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Vocabulary.self,
+            Review.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +26,7 @@ struct Vocabulary_IApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainVocabularyScreen()
         }
         .modelContainer(sharedModelContainer)
     }
