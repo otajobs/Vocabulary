@@ -29,17 +29,26 @@ struct ListOfVocabularyView: View {
                 }
             }
             .onDelete(perform: deleteItems)
+            
         }
     }
     
     init(sort: SortDescriptor<Vocabulary>, searchString: String) {
-        _items = Query(filter: #Predicate {
-            if searchString.isEmpty {
-                return true
-            } else {
-                return $0.rus.localizedStandardContains(searchString) || $0.eng.localizedStandardContains(searchString) || $0.uz.localizedStandardContains(searchString)
+        if searchString.isEmpty {
+            _items = Query(filter: #Predicate {
+                return $0.rusToEngCorrect >= 0
+            }, sort: [sort])
+        } else if searchString.lowercased().starts(with: "m:") {
+            if let minMissStr = searchString.components(separatedBy: ":").last, let minMiss = Int(minMissStr) {
+                _items = Query(filter: #Predicate {
+                    return $0.rusToEngMiss >= minMiss || $0.engToRusMiss >= minMiss || $0.rusToUzMiss >= minMiss || $0.uzToRusMiss >= minMiss
+                }, sort: [sort])
             }
-        }, sort: [sort])
+        } else {
+            _items = Query(filter: #Predicate {
+                return $0.rus.localizedStandardContains(searchString) || $0.eng.localizedStandardContains(searchString) || $0.uz.localizedStandardContains(searchString)
+            }, sort: [sort])
+        }
     }
     
     private func deleteItems(offsets: IndexSet) {

@@ -32,7 +32,7 @@ struct FlashCardScreen: View {
             if showAnswer {
                 HStack {
                     Button(action: {
-                        onTapCorrect()
+                        onTapMiss()
                     }, label: {
                         Text("miss")
                             .frame(maxWidth: .infinity)
@@ -43,7 +43,7 @@ struct FlashCardScreen: View {
                     })
                     
                     Button(action: {
-                        onTapMiss()
+                        onTapCorrect()
                     }, label: {
                         Text("correct")
                             .frame(maxWidth: .infinity)
@@ -72,42 +72,6 @@ struct FlashCardScreen: View {
                         next()
                     }, showAnswer: $showAnswer)
                     
-//                    FlashCard(frontText: randomItem?.rus, backText: randomItem?.uz, isFlipped: $showAnswer)
-//                        .padding(.top, 100)
-//                    Spacer()
-//                    if showAnswer {
-//                        HStack {
-//                            Button(action: {
-//                                randomItem?.rusToUzMiss.increment()
-//                                showAnswer = false
-//                                randomItem = items.randomElement()
-//                                reviews.first?.numberOfWordsReviewed += 1
-//                            }, label: {
-//                                Text("miss")
-//                                    .frame(maxWidth: .infinity)
-//                                    .padding()
-//                                    .background(Color.red)
-//                                    .foregroundStyle(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//                            
-//                            Button(action: {
-//                                randomItem?.rusToUzCorrect.increment()
-//                                showAnswer = false
-//                                randomItem = items.randomElement()
-//                                reviews.first?.numberOfWordsReviewed += 1
-//                            }, label: {
-//                                Text("correct")
-//                                    .frame(maxWidth: .infinity)
-//                                    .padding()
-//                                    .background(Color.green)
-//                                    .foregroundStyle(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//
-//                        }
-//                        .padding()
-//                    }
                 case .uzToRu:
                     FlashCardControl(frontText: randomItem?.uz, backText: randomItem?.rus, onTapCorrect: {
                         randomItem?.uzToRusCorrect.increment()
@@ -117,42 +81,6 @@ struct FlashCardScreen: View {
                         next()
                     }, showAnswer: $showAnswer)
                     
-//                    FlashCard(frontText: randomItem?.uz, backText: randomItem?.rus, isFlipped: $showAnswer)
-//                        .padding(.top, 100)
-//                    Spacer()
-//                    if showAnswer {
-//                        HStack {
-//                            Button(action: {
-//                                randomItem?.uzToRusMiss.increment()
-//                                showAnswer = false
-//                                randomItem = items.randomElement()
-//                                reviews.first?.numberOfWordsReviewed += 1
-//                            }, label: {
-//                                Text("miss")
-//                                    .frame(maxWidth: .infinity)
-//                                    .padding()
-//                                    .background(Color.red)
-//                                    .foregroundStyle(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//                            
-//                            Button(action: {
-//                                randomItem?.uzToRusCorrect.increment()
-//                                showAnswer = false
-//                                randomItem = items.randomElement()
-//                                reviews.first?.numberOfWordsReviewed += 1
-//                            }, label: {
-//                                Text("correct")
-//                                    .frame(maxWidth: .infinity)
-//                                    .padding()
-//                                    .background(Color.green)
-//                                    .foregroundStyle(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//
-//                        }
-//                        .padding()
-//                    }
                 case .ruToEng:
                     FlashCardControl(frontText: randomItem?.rus, backText: randomItem?.eng, onTapCorrect: {
                         randomItem?.rusToEngCorrect.increment()
@@ -162,42 +90,6 @@ struct FlashCardScreen: View {
                         next()
                     }, showAnswer: $showAnswer)
                     
-//                    FlashCard(frontText: randomItem?.rus, backText: randomItem?.eng, isFlipped: $showAnswer)
-//                        .padding(.top, 100)
-//                    Spacer()
-//                    if showAnswer {
-//                        HStack {
-//                            Button(action: {
-//                                randomItem?.rusToEngMiss.increment()
-//                                showAnswer = false
-//                                randomItem = items.randomElement()
-//                                reviews.first?.numberOfWordsReviewed += 1
-//                            }, label: {
-//                                Text("miss")
-//                                    .frame(maxWidth: .infinity)
-//                                    .padding()
-//                                    .background(Color.red)
-//                                    .foregroundStyle(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//                            
-//                            Button(action: {
-//                                randomItem?.rusToEngCorrect.increment()
-//                                showAnswer = false
-//                                randomItem = items.randomElement()
-//                                reviews.first?.numberOfWordsReviewed += 1
-//                            }, label: {
-//                                Text("correct")
-//                                    .frame(maxWidth: .infinity)
-//                                    .padding()
-//                                    .background(Color.green)
-//                                    .foregroundStyle(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//
-//                        }
-//                        .padding()
-//                    }
                 case .engToRu:
                     FlashCardControl(frontText: randomItem?.eng, backText: randomItem?.rus, onTapCorrect: {
                         randomItem?.engToRusCorrect.increment()
@@ -207,42 +99,6 @@ struct FlashCardScreen: View {
                         next()
                     }, showAnswer: $showAnswer)
                     
-//                    FlashCard(frontText: randomItem?.eng, backText: randomItem?.rus, isFlipped: $showAnswer)
-//                        .padding(.top, 100)
-//                    Spacer()
-//                    if showAnswer {
-//                        HStack {
-//                            Button(action: {
-//                                randomItem?.engToRusMiss.increment()
-//                                showAnswer = false
-//                                randomItem = items.randomElement()
-//                                reviews.first?.numberOfWordsReviewed += 1
-//                            }, label: {
-//                                Text("miss")
-//                                    .frame(maxWidth: .infinity)
-//                                    .padding()
-//                                    .background(Color.red)
-//                                    .foregroundStyle(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//                            
-//                            Button(action: {
-//                                randomItem?.engToRusCorrect.increment()
-//                                showAnswer = false
-//                                randomItem = items.randomElement()
-//                                reviews.first?.numberOfWordsReviewed += 1
-//                            }, label: {
-//                                Text("correct")
-//                                    .frame(maxWidth: .infinity)
-//                                    .padding()
-//                                    .background(Color.green)
-//                                    .foregroundStyle(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//
-//                        }
-//                        .padding()
-//                    }
                 }
             }
         }
@@ -279,16 +135,34 @@ struct FlashCardScreen: View {
         let missMax = option.missMax
         let totalMin = option.totalMin
         let totalMax = option.totalMax
+//        let accuracyMin = option.accuracyMin
+//        let accuracyMax = option.accuracyMax
 
         switch option.language {
             case .ruToEng:
-                _items = Query(filter: #Predicate { correctMin <= $0.rusToEngCorrect && $0.rusToEngCorrect <= correctMax && missMin <= $0.rusToEngMiss && $0.rusToEngMiss <= missMax && totalMin <= ($0.rusToEngMiss + $0.rusToEngCorrect) && ($0.rusToEngMiss + $0.rusToEngCorrect) <= totalMax })
+                _items = Query(filter: #Predicate {
+                    correctMin <= $0.rusToEngCorrect && $0.rusToEngCorrect <= correctMax &&
+                    missMin <= $0.rusToEngMiss && $0.rusToEngMiss <= missMax &&
+                    totalMin <= ($0.rusToEngMiss + $0.rusToEngCorrect) && ($0.rusToEngMiss + $0.rusToEngCorrect) <= totalMax
+                })
             case .engToRu:
-                _items = Query(filter: #Predicate { correctMin <= $0.engToRusCorrect && $0.engToRusCorrect <= correctMax && missMin <= $0.engToRusMiss && $0.engToRusMiss <= missMax && totalMin <= ($0.engToRusMiss + $0.engToRusCorrect) && ($0.engToRusMiss + $0.engToRusCorrect) <= totalMax })
+                _items = Query(filter: #Predicate {
+                    correctMin <= $0.engToRusCorrect && $0.engToRusCorrect <= correctMax &&
+                    missMin <= $0.engToRusMiss && $0.engToRusMiss <= missMax &&
+                    totalMin <= ($0.engToRusMiss + $0.engToRusCorrect) && ($0.engToRusMiss + $0.engToRusCorrect) <= totalMax
+                })
             case .ruToUz:
-                _items = Query(filter: #Predicate { correctMin <= $0.rusToUzCorrect && $0.rusToUzCorrect <= correctMax && missMin <= $0.rusToUzMiss && $0.rusToUzMiss <= missMax && totalMin <= ($0.rusToUzMiss + $0.rusToUzCorrect) && ($0.rusToUzMiss + $0.rusToUzCorrect) <= totalMax })
+                _items = Query(filter: #Predicate {
+                    correctMin <= $0.rusToUzCorrect && $0.rusToUzCorrect <= correctMax &&
+                    missMin <= $0.rusToUzMiss && $0.rusToUzMiss <= missMax &&
+                    totalMin <= ($0.rusToUzMiss + $0.rusToUzCorrect) && ($0.rusToUzMiss + $0.rusToUzCorrect) <= totalMax
+                })
             case .uzToRu:
-                _items = Query(filter: #Predicate { correctMin <= $0.uzToRusCorrect && $0.uzToRusCorrect <= correctMax && missMin <= $0.rusToUzMiss && $0.uzToRusMiss <= missMax && totalMin <= ($0.uzToRusMiss + $0.uzToRusCorrect) && ($0.uzToRusMiss + $0.uzToRusCorrect) <= totalMax })
+                _items = Query(filter: #Predicate {
+                    correctMin <= $0.uzToRusCorrect && $0.uzToRusCorrect <= correctMax &&
+                    missMin <= $0.rusToUzMiss && $0.uzToRusMiss <= missMax &&
+                    totalMin <= ($0.uzToRusMiss + $0.uzToRusCorrect) && ($0.uzToRusCorrect + $0.uzToRusCorrect) <= totalMax
+                })
         }
     }
 }

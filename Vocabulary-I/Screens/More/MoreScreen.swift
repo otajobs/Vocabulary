@@ -54,6 +54,20 @@ struct MoreScreen: View {
                 }
             }
             
+            Section("Reset") {
+                Button("Reset") {
+                    for index in items.indices {
+                        items[index].rusToEngCorrect = 0
+                        items[index].rusToEngMiss = 0
+                        items[index].engToRusCorrect = 0
+                        items[index].engToRusMiss = 0
+                        items[index].rusToUzCorrect = 0
+                        items[index].rusToUzMiss = 0
+                        items[index].uzToRusCorrect = 0
+                        items[index].uzToRusMiss = 0
+                    }
+                }
+            }
         }
         .navigationTitle("More")
     }
