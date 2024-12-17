@@ -55,7 +55,7 @@ struct MoreScreen: View {
             }
             
             Section("Reset") {
-                Button("Reset") {
+                Button {
                     for index in items.indices {
                         items[index].rusToEngCorrect = 0
                         items[index].rusToEngMiss = 0
@@ -66,7 +66,10 @@ struct MoreScreen: View {
                         items[index].uzToRusCorrect = 0
                         items[index].uzToRusMiss = 0
                     }
+                } label: {
+                    Text("Reset")
                 }
+
             }
         }
         .navigationTitle("More")

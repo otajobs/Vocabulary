@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddVocabularyScreen: View {
     @Environment(\.modelContext) private var modelContext
@@ -61,6 +62,14 @@ struct AddVocabularyScreen: View {
     }
 }
 
-//#Preview {
-//    AddVocabularyScreen()
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Vocabulary.self, configurations: config)
+        let example = Vocabulary(rus: "машина", uz: "avtomobil", eng: "car")
+        container.mainContext.insert(example)
+        return AddVocabularyScreen()
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
